@@ -1,3 +1,3 @@
-# odin-restaurant
+# odin-todolist
 
-Restaurant Page from The Odin Project.
+Todo List from The Odin Project.
