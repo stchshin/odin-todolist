@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div id="sidebar">
+        <h1>Todo List</h1>
+        <button id="addProject">Add Project</button>
+        <ul id="projects">
+
+        </ul>
+    </div>
+    <div id="main">
+        <div id="project">
+        </div>
+        <div id="content">
+        </div>
+    </div>
+
+
+    <div id="addingProject">
+        <form id="projectForm">
+            <div>
+                <h3>New Project</h3>
+                <p id="closeAddProject">✕</p>
+            </div>
+            
+            <label for="projectTitle">
+                Title <input id="projectTitle" type="text" required>
+            </label>
+            <button class="addButton">Add Project</button>
+        </form>
+    </div>
+
+    <div id="addingTodo">
+        <form id="todoForm">
+            <div>
+                <h3>New Todo</h3>
+                <p id="closeAddTodo">✕</p>
+            </div>
+            
+            <label for="title">
+                Title <input id="title" type="text" required>
+            </label>
+            <label for="description">
+                Description <input id="description" type="text">
+            </label>
+            <label for="dueDate">
+                Due Date <input id="dueDate" type="date" required>
+            </label>
+            <label for="priority">
+                Priority (1 - 10)<input id="priority" type="number" required min="1" max="10">
+            </label>
+            <button class="addButton">Add Todo</button>
+        </form>
+    </div>
+
+    <div id="editTodo">
+        <form id="editForm">
+            <div>
+                <h3>Edit Todo</h3>
+                <p id="closeEditTodo">✕</p>
+            </div>
+            <label for="editTitle">
+                Title <input id="editTitle" type="text" required>
+            </label>
+            <label for="editDescription">
+                Description <input id="editDescription" type="text">
+            </label>
+            <label for="editDueDate">
+                Due Date <input id="editDueDate" type="date" required>
+            </label>
+            <label for="editPriority">
+                Priority (1 - 10)<input id="editPriority" type="number" required min="1" max="10">
+            </label>
+            <button class="addButton">Edit Todo</button>
+
+        </form>
+    </div>
+</body>
+</html>
