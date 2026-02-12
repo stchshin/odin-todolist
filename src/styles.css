@@ -1,107 +1,162 @@
-@import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body {
+    height: auto;
+}
 
 body {
     background-color: #ffebf6;
-    font-family: 'Quintessential';
-    color: #a37622;
+    position: relative;
+    display: flex;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+body, body * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+}
+
+button {
+    border: solid 1px;
     padding: 10px;
-    padding-bottom: 20px;
-    border-bottom: solid 1.5px #7a0551;
 }
 
-nav > button {
-    background-color: transparent;
-    border: none;
-    font-family: "Oooh Baby";
-    font-weight: bold;
-    font-size: 30px;
-    color: #ba2b7a;
+button:hover {
+    scale: 95%;
 }
 
-nav > button:hover {
-    text-decoration: underline 2px;
-}
-
-.home {
+#sidebar {
+    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    gap: 50px;
-}
-
-.home > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    background-color: #deadc5;
-    width: 60vw;
-    padding: 50px;
-}
-
-.home > div > div {
-    width: 40vw;
-    font-size: 30px;
-    color: #a37622;
-    text-align: center;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    white-space: pre-wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu > div:first-child {
-    text-align: center;
-    font-size: 30px;
-}
-
-.menu img {
-    width: 15vw;
-}
-
-.images {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.menu > div {
-    width: calc(30vw + 20px);
-    font-size: 20px;
-}
-
-.about {
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 30px;
-}
-
-.about > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    width: 80vw;
-}
-
-.about > div > div {
     width: 25vw;
+    height: auto;
+    min-height: 100vh;
+    padding: 30px;
+    gap: 25px;
+    border-right: solid 1px black;
+}
+
+#addProject {
+    width: 8rem;
+    background-color: #ffebf6;
+}
+
+#projects {
+    list-style: none;
+}
+
+#projects li {
+    padding-bottom: 20px;
+}
+
+#main  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#project {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    padding-bottom: 0;
+    gap: 20px;
+}
+
+.addTodo {
+    background-color: white;
+    width: 10rem;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+    flex-wrap: wrap;
+}
+
+.frontInfo, .backInfo {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.priority {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 15px;
+    text-align: center;
+    border: solid 1px;
+}
+
+.status {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+
+/* Popups */
+
+#addingProject, #addingTodo, #editTodo {
+    border: solid 1px black;
+}
+
+#addingProject, #addingTodo, #editTodo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 35vw;
+    display: none;
+}
+
+#addingProject {
+    height: 26vh;
+}
+
+#addingTodo, #editTodo {
+    height: 53vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form > div {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+#addingTodo input, #addingProject input, #editTodo input {
+    height: 4vh;
+}
+
+input {
+    width: 100%;
+}
+
+#projectTitle, #priority, #editPriority {
+    margin-bottom: 10px;
+}
+
+.addButton {
+    width: 8vw;
+    margin-left: auto;
+    padding: 8px;
 }
