@@ -46,7 +46,7 @@ function todoLoad(project, projectData) {
     // Load todos of a project
     const content = document.querySelector('#content');
     content.textContent = '';
-    
+
     // Load each todo on page, recently added first
     for (let i = project.todos.length - 1; i >= 0; i--) {
         let todo = project.todos[i]
@@ -134,16 +134,25 @@ export function showProject(project, projectData) {
     const projectContainer = document.querySelector('#project');
     projectContainer.textContent = '';
 
-    // Set project title & add todo button on main content
+    // Set project title & add todo button + project delete button on main content
     const title = document.createElement("p");
     title.textContent = project.title;
     title.setAttribute("style", "font-size: 32px");
+
+    const buttons = document.createElement("div");
+    buttons.classList.add("buttons");
     const addTodo = document.createElement("button");
     addTodo.textContent = 'Add Todo';
     addTodo.classList.add("addTodo");
     addTodo.setAttribute("data-project-id", project.id)
 
-    projectContainer.append(title, addTodo);
+    const deleteProject = document.createElement("button");
+    deleteProject.textContent = 'Delete Project';
+    deleteProject.classList.add("deleteProject");
+    deleteProject.setAttribute("data-project-id", project.id);
+
+    buttons.append(addTodo, deleteProject);
+    projectContainer.append(title, buttons);
     todoLoad(project, projectData);
 
     // Try adding todo to a project via button
@@ -161,6 +170,14 @@ export function showProject(project, projectData) {
             document.querySelector('#addingTodo').style.display = "none";
             blur(false);
         })
+    })
+
+    // Delete project
+    document.querySelector('.deleteProject').addEventListener('click', function() {
+        const deleteProjectIndex = projectData.findIndex(project => project.id == document.querySelector('.deleteProject').dataset.projectId);
+        projectData.splice(deleteProjectIndex, 1);
+        save(projectData);
+        location.reload();
     })
 }
 

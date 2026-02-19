@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if user's data already exists
     let projectData;
     if (load()) {
-        showProject(addMethods(load())[0]);
         projectData = addMethods(load());
-        showProject(projectData[projectData.length - 1]);
+        showProject(projectData[projectData.length - 1], projectData);
     } else {
         projectData = [];
         const defaultProject = new Project('Default');

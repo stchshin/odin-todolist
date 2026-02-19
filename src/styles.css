@@ -65,7 +65,12 @@ button:hover {
     gap: 20px;
 }
 
-.addTodo {
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.addTodo, .deleteProject {
     background-color: white;
     width: 10rem;
 }
