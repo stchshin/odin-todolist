@@ -151,7 +151,11 @@ export function showProject(project, projectData) {
     deleteProject.classList.add("deleteProject");
     deleteProject.setAttribute("data-project-id", project.id);
 
-    buttons.append(addTodo, deleteProject);
+    buttons.append(addTodo);
+    const projectIndex = projectData.findIndex(projectFromData => projectFromData.id == project.id);
+    if (projectIndex != 0) {
+        buttons.append(deleteProject);
+    }
     projectContainer.append(title, buttons);
     todoLoad(project, projectData);
 
@@ -173,12 +177,14 @@ export function showProject(project, projectData) {
     })
 
     // Delete project
-    document.querySelector('.deleteProject').addEventListener('click', function() {
-        const deleteProjectIndex = projectData.findIndex(project => project.id == document.querySelector('.deleteProject').dataset.projectId);
-        projectData.splice(deleteProjectIndex, 1);
-        save(projectData);
-        location.reload();
-    })
+    if (projectIndex != 0) {
+        document.querySelector('.deleteProject').addEventListener('click', function() {
+            const deleteProjectIndex = projectData.findIndex(project => project.id == document.querySelector('.deleteProject').dataset.projectId);
+            projectData.splice(deleteProjectIndex, 1);
+            save(projectData);
+            location.reload();
+        })
+    }
 }
 
 export function projectAdd(project, projectData, flag) {
